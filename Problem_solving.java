@@ -843,6 +843,14 @@ public boolean isAnagram(String s,String t){
         return true;
 }
 
+//public int maxdepth(TreeNode root){
+//        if(root==null){
+//            return 0;
+//        }
+//
+//        return Math.max(maxdepth(root.left),maxdepth(root.right))+1;
+//}
+
 
 
 //    public boolean hasCycle(Node head){

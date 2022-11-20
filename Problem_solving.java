@@ -851,6 +851,30 @@ public boolean isAnagram(String s,String t){
 //        return Math.max(maxdepth(root.left),maxdepth(root.right))+1;
 //}
 
+//    public boolean isSameTree(Node p,Node q){
+//        if(p==null && q==null){return true;}
+//
+//        if(p==null || q==null){return false;}
+//
+//        if(p.data!=q.data){return false;}
+//
+//        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+//    }
+
+    public Node invertTree(Node root){
+        if(root==null){
+            return null;
+        }
+
+        Node right = invertTree(root.right);
+        Node left = invertTree(root.left);
+
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
+
 
 
 //    public boolean hasCycle(Node head){

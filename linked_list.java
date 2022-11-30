@@ -1,4 +1,4 @@
-import java.util.List;
+import java.awt.*;
 
 public class linked_list {
     public static void main(String[] args) {
@@ -110,6 +110,64 @@ public class linked_list {
 
         return dummy.next;
     }
+
+    public void reorderList(ListNode head) {
+
+        if(head==null){
+            return;
+        }
+
+        ListNode slow = head,fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode prev = null,curr = slow,temp;
+        while(curr!=null){
+            temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+
+        ListNode first = head, second = prev;
+        while(second.next!=null){
+            temp = first.next;
+            first.next = prev;
+            first = temp;
+
+            temp = second.next;
+            second.next = first;
+            second = temp;
+        }
+
+
+
+//        Stack<ListNode> stack = new Stack();
+//        ListNode node = head;
+//
+//        while(node!=null){
+//            stack.add(node);
+//            node = node.next;
+//        }
+//
+//        node = head;
+//        while(node != null){
+//            ListNode next = node.next;
+//            ListNode endNode = stack.pop();
+//
+//            node.next = endNode;
+//            endNode.next = next;
+//            node = next;
+//
+//            if(node!=null && node.next==endNode){
+//                node.next = null;
+//                break;
+//            }
+//        }
+    }
+
 }
 
 //public class ListNode{
